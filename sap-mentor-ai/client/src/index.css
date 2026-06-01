@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles for the Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f294d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Premium Background Glow Nodes */
+.glow-mesh {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.glow-mesh-secondary {
+  position: absolute;
+  bottom: -10%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(18, 24, 41, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(31, 41, 77, 0.6);
+}
+
+/* Interactive custom hover effect */
+.interactive-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.08), 0 8px 10px -6px rgba(6, 182, 212, 0.08);
+}
+
+/* Teleprompter Scrolling Styles */
+.teleprompter-container {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+/* Printing styles for high-fidelity PDF downloads */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+  }
+
+  /* Hide navigation, buttons, controls and header during print */
+  header, 
+  button, 
+  .no-print,
+  .quick-prompts,
+  .teleprompter-controls,
+  .tabs-sidebar {
+    display: none !important;
+  }
+
+  /* Re-layout sections to stack neatly */
+  .print-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Force display of hidden items */
+  .print-force {
+    display: block !important;
+    page-break-after: always;
+  }
+
+  /* Avoid splitting steps or sections across pages */
+  .print-avoid-split {
+    page-break-inside: avoid !important;
+  }
+
+  /* Style headings for corporate layout */
+  h1, h2, h3 {
+    color: #134e8a !important;
+    page-break-after: avoid;
+  }
+}

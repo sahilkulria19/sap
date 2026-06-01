@@ -1,0 +1,26 @@
+{
+  "name": "sap-mentor-ai-root",
+  "version": "1.0.0",
+  "description": "Root orchestrator for SAP Mentor AI - Full Stack SAP Training and Design Assistant",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently \"npm run dev --prefix client\" \"PORT=5001 npm run start --prefix server\"",
+    "start": "concurrently \"npm run build --prefix client\" \"PORT=5001 npm run start --prefix server\"",
+    "build": "npm run build --prefix client"
+  },
+  "keywords": [
+    "sap",
+    "cpi",
+    "ai",
+    "gemini",
+    "mentor",
+    "integration",
+    "training"
+  ],
+  "author": "SAP Mentor AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
