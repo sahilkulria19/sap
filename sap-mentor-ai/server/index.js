@@ -522,3 +522,5 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 SAP Mentor AI Backend running on http://localhost:${PORT}`);
 });
+
+export default app;
